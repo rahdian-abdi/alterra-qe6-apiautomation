@@ -9,6 +9,7 @@ Feature: Test Reqres.in
     Examples:
     |page|status|
     |2   |200   |
+    |1   |200   |
 
   @get @tugas @positive
   Scenario Outline: Get all list user
