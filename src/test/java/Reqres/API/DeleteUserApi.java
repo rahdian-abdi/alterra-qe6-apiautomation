@@ -3,7 +3,7 @@ package Reqres.API;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
-public class DeleteApi {
+public class DeleteUserApi {
     public static String URL = "https://reqres.in";
     public static String DELETE_USER = URL+"/api/users/{id}";
     public static String DELETE_USER_INVALID_PATH = URL+"/api/{path}/{id}";

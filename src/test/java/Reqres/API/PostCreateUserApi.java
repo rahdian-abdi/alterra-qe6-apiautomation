@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Step;
 
 import java.io.File;
 
-public class PostApi {
+public class PostCreateUserApi {
     public static String URL = "https://reqres.in";
     public static String DIR = System.getProperty("user.dir");
     public static String JSON_FILE = DIR+"/src/test/resources/JSON";

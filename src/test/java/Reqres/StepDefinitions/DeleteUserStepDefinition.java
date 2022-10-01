@@ -1,22 +1,22 @@
 package Reqres.StepDefinitions;
 
-import Reqres.API.DeleteApi;
+import Reqres.API.DeleteUserApi;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
-public class DeleteStepDefinition {
+public class DeleteUserStepDefinition {
     @Steps
-    DeleteApi delete;
+    DeleteUserApi delete;
     @Given("Delete user with valid {int}")
     public void delete_user_with_valid(Integer id) {
        delete.deleteUser(id);
     }
     @When("Send request delete user")
     public void send_request_delete_user() {
-        SerenityRest.when().delete(DeleteApi.DELETE_USER);
+        SerenityRest.when().delete(DeleteUserApi.DELETE_USER);
     }
     @Then("Should return {int} No Content")
     public void should_return_no_content(Integer status) {
