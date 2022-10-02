@@ -1,6 +1,6 @@
 package Reqres.StepDefinitions;
 
-import Reqres.API.PostCreateUserApi;
+import Reqres.API.PostLoginUserApi;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -9,25 +9,25 @@ import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import java.io.File;
 
-public class LoginUserStepDefinition {
+public class PostLoginUserStepDefinition {
 
     @Steps
-    PostCreateUserApi post;
+    PostLoginUserApi postLogin;
 
     // LOGIN
     @Given("Login user with valid body request")
     public void loginUserWithValidBodyRequest() {
-        File json = new File(PostCreateUserApi.JSON_FILE+"/BodyRequest/PostLoginUser.json");
-        post.postCreateNewUser(json);
+        File json = new File(PostLoginUserApi.JSON_FILE+"/BodyRequest/PostLoginUser.json");
+        postLogin.postLoginUser(json);
     }
 
     @When("Send request login")
     public void sendRequestLogin() {
-        SerenityRest.when().post(PostCreateUserApi.POST_LOGIN);
+        SerenityRest.when().post(PostLoginUserApi.POST_LOGIN);
     }
     @And("Login user successful json schema")
     public void loginUserSuccessfulJsonSchema() {
-        File json = new File(PostCreateUserApi.JSON_FILE+"/SchemaValidator/PostLoginUserSuccessfulJsonSchema.json");
+        File json = new File(PostLoginUserApi.JSON_FILE+"/SchemaValidator/PostLoginUserSuccessfulJsonSchema.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
     }
 
@@ -35,12 +35,12 @@ public class LoginUserStepDefinition {
 
     @Given("Login user with invalid body request")
     public void loginUserWithInvalidBodyRequest() {
-        File json = new File(PostCreateUserApi.JSON_FILE+"/BodyRequest/PostLoginUnsuccessful.json");
-        post.postCreateNewUser(json);
+        File json = new File(PostLoginUserApi.JSON_FILE+"/BodyRequest/PostLoginUnsuccessful.json");
+        postLogin.postLoginUser(json);
     }
     @And("Login user unsuccessful json schema")
     public void loginUserUnsuccessfulJsonSchema() {
-        File json = new File(PostCreateUserApi.JSON_FILE+"/SchemaValidator/PostLoginUserUnsuccessfulJsonSchema.json");
+        File json = new File(PostLoginUserApi.JSON_FILE+"/SchemaValidator/PostLoginUserUnsuccessfulJsonSchema.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
     }
 }

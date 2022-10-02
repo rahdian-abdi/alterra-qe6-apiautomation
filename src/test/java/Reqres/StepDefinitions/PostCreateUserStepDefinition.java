@@ -55,7 +55,7 @@ public class PostCreateUserStepDefinition {
     //11. CREATE USER WITH INVALID PATH
     @When("Send request post new user with invalid path")
     public void sendRequestPostNewUserWithInvalidPath() {
-        SerenityRest.when().post(PostCreateUserApi.POST_CREATE_NEW_USER_INPUT_PARAMETER);
+        SerenityRest.when().post(PostCreateUserApi.POST_CREATE_NEW_USER_INVALID_PARAMETER);
     }
     @And("Create new user with invalid parameter json schema")
     public void createNewUserWithInvalidParameterJsonSchema() {

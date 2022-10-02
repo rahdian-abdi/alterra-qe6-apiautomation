@@ -6,15 +6,14 @@ import net.thucydides.core.annotations.Step;
 
 import java.io.File;
 
-public class PostCreateUserApi {
+public class PostRegisterUserApi {
     public static String URL = "https://reqres.in";
     public static String DIR = System.getProperty("user.dir");
     public static String JSON_FILE = DIR+"/src/test/resources/JSON";
-    public static String POST_CREATE_NEW_USER = URL+"/api/users";
-    public static String POST_CREATE_NEW_USER_INVALID_PARAMETER = URL+"/api/userrr";
+    public static String POST_REGISTER = URL+"/api/register";
 
     @Step("Post create new user")
-    public void postCreateNewUser(File json) {
+    public void postRegisterUser(File json) {
         SerenityRest.given().contentType(ContentType.JSON).body(json);
     }
 }
