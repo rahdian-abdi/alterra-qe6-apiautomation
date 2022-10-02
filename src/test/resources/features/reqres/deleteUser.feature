@@ -7,6 +7,8 @@ Feature: Delete User Reqres.in
     Examples:
       |id |status |
       |1  |204    |
+      |2  |204    |
+      |3  |204    |
 
   @delete @tugas @negative
   Scenario Outline: Delete user with unregistered user
@@ -16,6 +18,8 @@ Feature: Delete User Reqres.in
     Examples:
       |id   |status |
       |4000 |404    |
+      |5000 |404    |
+      |6000 |404    |
 
   @delete @tugas @negative
   Scenario Outline: Delete user with already deleted user
@@ -26,6 +30,8 @@ Feature: Delete User Reqres.in
     Examples:
       |id   |status |
       |1    |404    |
+      |2    |404    |
+      |3    |404    |
 
   @delete @tugas @negative
   Scenario Outline: Delete user with invalid parameter
@@ -34,4 +40,5 @@ Feature: Delete User Reqres.in
     Then Should return <status> Bad Request
     Examples:
       |id   |path     |status |
-      |1    |!@#$%    |404    |
+      |1    |#####    |404    |
+      |2    |!!!!!    |404    |

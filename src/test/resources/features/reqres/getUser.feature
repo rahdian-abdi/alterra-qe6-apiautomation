@@ -21,6 +21,7 @@ Feature: Get user Reqres.in
     Examples:
       |id   |status|
       |200  |404   |
+      |300  |404   |
 
   @get @tugas @positive
   Scenario Outline: Get user with invalid id
@@ -30,4 +31,5 @@ Feature: Get user Reqres.in
     And Should return empty data
     Examples:
       |id     |status|
-      |!@#$%  |404   |
+      |#####  |404   |
+      |!!!!!  |404   |
